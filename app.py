@@ -1,7 +1,12 @@
 import streamlit as st
 import pandas as pd
-import joblib
-
+try:
+    import joblib
+except ImportError:
+    import subprocess
+    import sys
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "joblib==1.5.1"])
+    import joblib
 
 # =========================================================
 # PAGE CONFIG
